@@ -6,8 +6,8 @@ with open("alertas.json", "r", encoding="utf-8") as arquivo:
 fila_alertas = []
 
 def carregar_alertas(alertas):
-
-    for alerta in alertas:
+    for i, alerta in enumerate(alertas, start=1):
+        alerta["id"] = i
         fila_alertas.append(alerta)
 
 def processar_alerta():
@@ -23,8 +23,8 @@ ID: {alerta['id']}
 Latitude: {alerta['latitude']}
 Longitude: {alerta['longitude']}
 Intensidade: {alerta['brightness']}
-Data: {alerta['data']}
-Hora: {alerta['hora']}
+Data: {alerta['acq_date']}
+Hora: {alerta['acq_time']}
 """)
 
 def mostrar_alertas():
@@ -40,8 +40,8 @@ ID: {alerta['id']}
 Latitude: {alerta['latitude']}
 Longitude: {alerta['longitude']}
 Intensidade: {alerta['brightness']}
-Data: {alerta['data']}
-Hora: {alerta['hora']}
+Data: {alerta['acq_date']}
+Hora: {alerta['acq_time']}
 ------------------------------
 """)
 
@@ -124,8 +124,8 @@ ID: {resultado['id']}
 Latitude: {resultado['latitude']}
 Longitude: {resultado['longitude']}
 Intensidade: {resultado['brightness']}
-Data: {resultado['data']}
-Hora: {resultado['hora']}
+Data: {resultado['acq_date']}
+Hora: {resultado['acq_time']}
 """)
 
                 else:
